@@ -22,7 +22,7 @@
  *
  * @link http://www.raintpl.com
  * @author Federico Ulfo <rainelemental@gmail.com>
- * @version 1.9.1
+ * @version 1.9.1 - updated by @Massi-X on 06-2023
  * @copyright 2006 - 2010 Federico Ulfo | www.federicoulfo.it
  * @package Rain
  */
@@ -91,7 +91,7 @@ class RainTPL{
 	 * @return RainTPL
 	 */
 
-	function __construct( $tpl_dir = null, $tpl_compile_dir = null, $base_dir = null ){
+	public function __construct( $tpl_dir = null, $tpl_compile_dir = null, $base_dir = null ){
 		if( $tpl_dir )
 			RainTPL::$tpl_dir = $tpl_dir . ( substr($tpl_dir,-1,1) != "/" ? "/" : "" );
 		if( $tpl_compile_dir )

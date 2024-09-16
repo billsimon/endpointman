@@ -35,6 +35,7 @@ out("Endpoint Manager Installer");
 
 //define("PHONE_MODULES_PATH", $amp_conf['AMPWEBROOT'] . '/admin/modules/_ep_phone_modules/');
 //define("LOCAL_PATH", $amp_conf['AMPWEBROOT'] . '/admin/modules/endpointman/');
+define("ASSETS_FILE", $amp_conf['AMPWEBROOT'] . '/admin/assets/endpointman');
 
 
 if (!file_exists(PHONE_MODULES_PATH)) {
@@ -50,6 +51,13 @@ if (!file_exists(PHONE_MODULES_PATH . "setup.php")) {
 if (!file_exists(PHONE_MODULES_PATH . "temp/")) {
     mkdir(PHONE_MODULES_PATH . "temp/", 0764);
     out("Creating temp folder");
+}
+
+if (!file_exists(ASSETS_FILE)) {
+	outn('Creating symlink to assets..');
+	if (!symlink($amp_conf['AMPWEBROOT'] . "/admin/modules/endpointman/assets/", ASSETS_FILE)) {
+		die("<span class=\"error\">Unable to create symlink to assets folder, the module won't work!</span>");
+	}
 }
 
 $modinfo = module_getinfo('endpointman');
